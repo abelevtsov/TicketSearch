@@ -37,6 +37,7 @@ namespace FlyTicketsSearch
         private static IWebDriver InitDriver()
         {
             var webDriver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), new ChromeOptions());
+            webDriver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 30));
             return webDriver;
         }
 
