@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Mail;
 
 namespace FlyTicketsSearch
@@ -18,18 +18,18 @@ namespace FlyTicketsSearch
             var result = await searchEngine.Search().ConfigureAwait(true);
             searchEngine.Dispose();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Цена на билет до Симферополя снизилась!!!\nНовая цена {0} Руб.", result);
+            Console.WriteLine("Цена на билет до *** снизилась!!!\nНовая цена {0} Руб.", result);
             Notify(result);
         }
 
         private  static void Notify(int cost)
         {
-            var from = "abelevtsov@rosagroleasing.ru";
-            var to = "pos-1@yandex.ru";
+            var from = "***@***.ru";
+            var to = "***@***.ru";
             var message = new MailMessage(from, to)
             {
                 Subject = "Цена снизилась!",
-                Body = string.Format("Цена на билет до Симферополя снизилась!!!\nНовая цена {0} Руб.", cost)
+                Body = string.Format("Цена на билет до *** снизилась!!!\nНовая цена {0} Руб.", cost)
             };
 
             message.CC.Add(new MailAddress(to));
